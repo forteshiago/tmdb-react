@@ -2,8 +2,9 @@ import React from "react";
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import Logo from "../../assets/images/logo-tmdbflix.png";
-import Avatar from "../../assets/images/profile-mockup.png";
+import BarSearch from '../BarSearch';
+
+import Logo from '../../assets/images/logo-tmdbflix.png';
 
 const useStyles = makeStyles(() => ({
    
@@ -14,16 +15,20 @@ const useStyles = makeStyles(() => ({
      //},
    //},
 
+   header: {
+      height: '360px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#999999',
+   },
+
    logo: {
       height: '8rem',
       padding: '1rem 3rem',
       objectFit: 'cover',
       objectPosition: 'center',
-   },
-   avatar: {
-      height: '8rem',
-      padding: '1rem 3rem',
-      borderRadius: '100%',
    },
  }));
 
@@ -31,14 +36,15 @@ function HeaderBar(){
    const classes = useStyles();
    
    return (
-      <header>
+      <div className={classes.header}>
          <div >
             <img className={classes.logo} src={Logo} alt="TMDB Flix logo"/>
          </div>
          <div>
-            <img className={classes.avatar} src={Avatar} alt="Avatar Image"/>
+            <BarSearch />
          </div>
-      </header>
+         
+      </div>
    );
 };
 

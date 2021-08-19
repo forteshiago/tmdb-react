@@ -5,10 +5,18 @@ import BarHeader from './components/BarHeader';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"
+      style={
+        {
+          backgroundColor: '#CCCCCC', //Test for a background
+          height: '2500px',
+          display: 'column',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }
+      }>
       <ResetCss />
       <BarHeader />
-      <h1>TMDB Flix</h1>
     </div>
   );
 }
