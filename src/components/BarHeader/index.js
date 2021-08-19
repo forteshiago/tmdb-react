@@ -3,6 +3,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 
 import BarSearch from '../BarSearch';
+import BarView from '../BarView';
 
 import Logo from '../../assets/images/logo-tmdbflix.png';
 
