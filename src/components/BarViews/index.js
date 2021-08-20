@@ -11,7 +11,7 @@ import MoreIcon from '@material-ui/icons/Apps';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    width: '100%',
+    width: '95%',
   },
   setor: {
     fontSize: '20pt',
