@@ -21,7 +21,6 @@ const useStyles = makeStyles(() => ({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#999999',
    },
 
    logo: {

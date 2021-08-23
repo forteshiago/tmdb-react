@@ -39,7 +39,7 @@ export default function IconLabelTabs() {
   return (
     <div className={classes.root} >
     <Link to='/trending' className={classes.setor}><WhatshotIcon className={classes.icon}/>Trending</Link>
-    <Link to='/favorite' className={classes.setor}><FavoriteIcon className={classes.icon}/>Favorite</Link>
+    <Link to='/favorite' className={classes.setor}><FavoriteIcon className={classes.icon}/>Favorites</Link>
     <Link to='/more' className={classes.setor}><MoreIcon className={classes.icon}/>More</Link>
     </div>
   );
