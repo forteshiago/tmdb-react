@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '30pt',
   },
   iconButton: {
-    padding: 10,
+    width: '3em',
+    height: '3em',
   },
 }));
 
@@ -36,10 +37,10 @@ export default function CustomizedInputBase() {
       />
       <IconButton
         type="submit"
-        className={classes.iconButton}
+        
         aria-label="search"
       >
-        <SearchIcon />
+        <SearchIcon className={classes.iconButton} />
       </IconButton>
     </Paper>
   );
