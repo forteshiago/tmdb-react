@@ -16,17 +16,28 @@ const useStyles = makeStyles({
 function CardArea() {
   const classes = useStyles();
   const [results, setResults] = useState([]);
+
+  const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   
   useEffect(() => {
     api.get('').then(({ data }) => {
       setResults(data.results);
     });
   }, []);
+
+  const sortedResults = results.sort((a, b) => b.vote_average - a.vote_average);
   
   return (
     <div className={classes.root}>
-    { results.map( movie => (
-        <MyCard key={movie.id} id={movie.id} movieName={movie.original_title} />
+    { sortedResults.map( movie => (
+        <MyCard 
+          key={movie.id}
+          id={movie.id}
+          movieName={movie.original_title}
+          poster={IMG_URL+movie.backdrop_path}
+          releaseDate={movie.release_date}
+          voteAverage={movie.vote_average}
+        />
     ))}
     </div>
   );
