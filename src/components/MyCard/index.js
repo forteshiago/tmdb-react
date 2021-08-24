@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   
 });
 
-function MyCard() {
+function MyCard( {id, movieName} ) {
 
   const classes = useStyles();
   //const detail = `details/${movie.uid}`;
@@ -46,7 +46,7 @@ function MyCard() {
           style={{ width: '100%' ,borderRadius: '1rem' }}
         />
       
-      <MovieTitle>Rick and Morty Season 5</MovieTitle>
+      <MovieTitle>{movieName}</MovieTitle>
       <h3 className={classes.myDate}>10-10-2022</h3>
       </Link>
 

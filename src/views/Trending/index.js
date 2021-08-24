@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 
 import CardArea from '../../components/CardArea';
 
-const useStyles = makeStyles({
-});
+// const useStyles = makeStyles({
+// });
 
 function Trending() {
-  const classes = useStyles();
+  //const classes = useStyles();
 
   return (
     <>
