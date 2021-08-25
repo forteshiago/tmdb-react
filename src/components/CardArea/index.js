@@ -37,6 +37,7 @@ function CardArea() {
           poster={IMG_URL+movie.backdrop_path}
           releaseDate={movie.release_date}
           voteAverage={movie.vote_average}
+          overview={movie.overview}
         />
     ))}
     </div>

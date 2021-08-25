@@ -6,7 +6,7 @@ const MovieTitle = styled.h1`
     font-weight: 900;
     color: #404040;
 
-    padding-top: 2.4rem;
+    padding-top: 2rem;
 
 `
 export default MovieTitle;

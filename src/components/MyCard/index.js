@@ -8,7 +8,17 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import MovieTitle from '../../assets/styles/MovieTitle';
 
-const useStyles = makeStyles({
+// Modal
+
+import Dialog from '@material-ui/core/Dialog';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import CloseIcon from '@material-ui/icons/Close';
+import Slide from '@material-ui/core/Slide';
+
+// Modal
+
+const useStyles = makeStyles((theme) => ({
   myCard: {
     width: '460px',
     marginTop: '20px',
@@ -42,21 +52,57 @@ const useStyles = makeStyles({
     fontWeight: 'bold',
     color: '#404040',
 
+  },
+  // modal
+  appBar: {
+    position: 'relative',
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
+
+  modDesc:{
+    padding: '2rem',
+    fontFamily: 'Roboto',
+    fontSize: '30pt',
+    color: '#404040',
+    textAlign: 'center'
   }
   
+}));
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function MyCard( {movieName, poster, releaseDate, voteAverage} ) {
+function MyCard( {id, movieName, poster, releaseDate, voteAverage, overview} ) {
 
   const classes = useStyles();
   //const detail = `details/${movie.uid}`;
-  const detail = '/more';
 
   const ratedColor = voteAverage < 4 ? '#ff0d0d' : voteAverage < 7 ? '#ff8e15' : '#69b34c';
 
+  // modal
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
+  // modal
+
   return (
+    <>
     <div className={classes.myCard} >
-      <Link style={{ textDecoration: 'none', padding: 0, borderRadius: '1rem' }} to={detail}>
+      <Link 
+        onClick={handleClickOpen}
+        style={{ textDecoration: 'none', padding: 0, borderRadius: '1rem' }}
+        to='#'
+        >
         <img
           src={poster}
           alt="Poster Movie"
@@ -84,6 +130,37 @@ function MyCard( {movieName, poster, releaseDate, voteAverage} ) {
         </h3>
       </div>
     </div>
+
+    <div>
+      
+    <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+            <CloseIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <img
+          src={poster}
+          alt="Poster Movie"
+          id="imageExample"
+          style={
+            {
+              width: '100%',
+            }
+          }
+        />
+      
+      <MovieTitle style={{ fontSize: '50pt', textAlign: 'center' }} >
+        {movieName}
+      </MovieTitle>
+      <h3 className={classes.modDesc}>{releaseDate}</h3>
+      <p className={classes.modDesc}>{overview}</p>
+      
+    </Dialog>
+    </div>
+    </>
   );
 }
 
